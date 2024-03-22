@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f4f4f4;
+        }
+        .login-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .login-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .login-container input[type="text"],
+        .login-container input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .login-container input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .login-container input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form action="#" method="post" id="loginForm">
+            <input type="text" name="username" id="username" placeholder="Username" required><br>
+            <input type="password" name="password" id="password" placeholder="Password" required><br>
+            <input type="submit" value="Login">
+        </form>
+    </div>
+
+    <script>
+    // Array to store multiple user accounts
+    var users = [
+        { username: "tfs", password: "TFS1890999" },
+        { username: "RIYAN_TFS", password: "RIYAN9O" },
+        { username: "MAINAK", password: "98045" },
+        { username: "ANSHUMAN@TFS", password: "909989" },
+        { username: "noreply@tfs.com", password: "789987" }
+        // Add more accounts as needed
+    ];
+
+    document.getElementById("loginForm").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent the form from submitting
+
+        // Get username and password entered by the user
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+
+        // Check if the entered username and password match any of the accounts
+        var validUser = users.find(user => user.username === username && user.password === password);
+
+        if (validUser) {
+            // Redirect to the main page or do something else after successful login
+            alert("Login successful!");
+            window.location.href = "TFS app.html"; // Redirect to main page
+        } else {
+            // Display error message or handle unsuccessful login
+            alert("Invalid username or password. Please try again.");
+        }
+    });
+</script>
+<p><a href="create_account.html">CREATE ACCOUNT</a></p>
+</body>
+</html>
+
